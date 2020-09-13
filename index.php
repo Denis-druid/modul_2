@@ -6,6 +6,15 @@ header("Access-Control-Allow-Headers: Origin, Authorization, Content-Type, X-Req
 header("Access-Control-Allow-Credentials: false");
 header("Access-Control-Max-Age: -1");
 
+include_once 'database.php';
+try {
+    $pdo = new PDO("mysql:host={$hostname};dbname={$database}", $username, $password);
+
+} catch (PDOException $e) {
+    print "Error!: " . $e->getMessage();
+    die();
+}
+
 
 if (isset($_GET['api'])) {
 
