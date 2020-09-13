@@ -1,0 +1,13 @@
+#Стартовый файл
+DirectoryIndex /index.php
+
+#Модуль маршрутизации
+RewriteEngine On
+
+# Базовый корневой католог.
+RewriteBase /
+
+# Запросы апи
+
+RewriteRule  ^api/singup$ /?api&singup [L]
+
