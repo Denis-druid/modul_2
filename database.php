@@ -9,3 +9,12 @@ try {
     print "Error!: " . $e->getMessage();
     die();
 }
+$pdo ->exec("CREATE TABLE users(
+    id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT COMMINT 'Индивидуальный номер записи',
+    first_name  TEXT NOT NULL,
+    surname TEXT NOT NULL,
+    phone BIGINT UNSIGNED NOT NULL,
+    password TEXT NOT NULL,
+    PRIMARY KEY(id)
+)ENGINE=InnoDB ENGINE=InnoDB DEFAULT CHARSET=utf8; 
+");
