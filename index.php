@@ -25,7 +25,7 @@ if (isset($_GET['api'])) {
         include_once 'signup.php';
 
     }
-    elseif(insset($_GET['login'])){
+    elseif(isset($_GET['login'])){
         include_once 'login.php';
     }
     else {
