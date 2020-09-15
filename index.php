@@ -25,7 +25,9 @@ if (isset($_GET['api'])) {
         include_once 'signup.php';
 
     }
-
+    elseif(insset($_GET['login'])){
+        include_once 'login.php';
+    }
     else {
 
         header('HTTP/1.0 404 Not Found');

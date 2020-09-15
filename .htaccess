@@ -13,3 +13,4 @@
  # Запросы апи.
  RewriteRule ^api$ /?api [L]
  RewriteRule ^api/signup$ /?api&signup [L]
+ RewriteRule ^api/login$ /?api&login [L]
