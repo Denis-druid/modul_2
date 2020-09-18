@@ -21,8 +21,8 @@ if (isset($_POST['first_name']) &&
 
     else {
 
-        $prepare = $pdo->prepare("INSERT INTO 
-                    users (first_name, surname, phone, password) 
+        $prepare = $pdo->prepare("INSERT INTO
+                    users (first_name, surname, phone, password)
                     values (:first_name, :surname, :phone, :password)");
 
         $prepare->bindValue(":first_name", $first_name);

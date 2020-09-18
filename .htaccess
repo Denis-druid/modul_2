@@ -4,6 +4,9 @@
  # Модуль маршрутизации.
  RewriteEngine On
 
+ # Заголовок авторизации.
+ SetEnvIf Authorization .+ HTTP_AUTHOIZATION=$0
+
  # Базовый орневой каталог.
  RewriteBase /
 
@@ -14,3 +17,6 @@
  RewriteRule ^api$ /?api [L]
  RewriteRule ^api/signup$ /?api&signup [L]
  RewriteRule ^api/login$ /?api&login [L]
+ RewriteRule ^api/logout$ /?api&logout [L]
+ RewriteRule ^api/photo$ /?api&photo [L]
+ RewriteRule ^api/user$ /?api&user [L]

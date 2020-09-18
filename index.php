@@ -28,6 +28,16 @@ if (isset($_GET['api'])) {
     elseif(isset($_GET['login'])){
         include_once 'login.php';
     }
+    elseif(isset($_GET['photo'])){
+        include_once 'photo.php';
+    }
+    elseif(isset($_GET['logout'])){
+        include_once 'logout.php';
+    }
+    elseif(isset($_GET['user'])){
+        include_once 'user.php';
+    }
+
     else {
 
         header('HTTP/1.0 404 Not Found');
