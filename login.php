@@ -1,41 +1,42 @@
 <?php
-$data = $_SERVER['HTTP_AUTHOIZATION'];
 
-if (isset($_POST['phone']) &&
-    isset($_POST['password'])) {
-
+if (isset($_POST['phone']) && isset($_POST['password'])) {
     $phone = $_POST['phone'];
     $password = $_POST['password'];
+    $token = null;
 
-    $query = $pdo->query("SELECT * FROM users WHERE phone = '{$phone}' && password = '{$password}' ");
-    $user = $query->fetch(PDO::FETCH_ASSOC);
+    if (is_numeric($phone)) {
 
-    if ($user) {//Вход успешно выполнен
+        $query = $pdo -> query("SELECT * FROM users WHERE phone = '{$phone}'");
+        $user = $query -> fetch(PDO::FETCH_ASSOC);
 
-        if ($data){
-            $array = array('Вход успешно выполнен');
-            api_response($array);
+        if ($user) {
+            if ($password == $user['password']) {
 
-            echo json_encode($data);
+                $token = md5($password);
+
+                $array = array('token' => $token);
+                api_response($array);
+            }
+            else {
+                $array = array('login' => 'Incorrect login or password');
+                header('HTTP/1.0 404 Not Found');
+                api_response($array);
+            }
         }
-        else{
-            $array = array('error' => 'You need authorization');
-
-            header('HTTP/1.0 403 Forbidden');
+        else {
+            $array = array('login' => 'Incorrect login or password');
+            header('HTTP/1.0 404 Not Found');
             api_response($array);
         }
-
-
     }
-    else{
-        $array = array('error' => 'Неверный логин или пароль.');
-        header('HTTP/1.0 404 Not found');
+    else {
+        $array = array('phone' => 'Incorrect phone');
+        header('HTTP/1.0 404 Not Found');
         api_response($array);
     }
 }
-else{
-    $array = array('error' => 'Нет всех обязательных данных.');
-
-    header('HTTP/1.0 422 Unprocessable entity');
-    api_response($array);
+else {
+    header('HTTP/1.0 404 Not Found');
+    exit;
 }

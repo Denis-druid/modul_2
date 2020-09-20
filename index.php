@@ -7,6 +7,7 @@ header("Access-Control-Allow-Credentials: false");
 header("Access-Control-Max-Age: -1");
 
 include_once 'database.php';
+$auth_user = null;
 try {
     $pdo = new PDO("mysql:host={$hostname};dbname={$database}", $username, $password);
 
@@ -28,28 +29,21 @@ if (isset($_GET['api'])) {
     elseif(isset($_GET['login'])){
         include_once 'login.php';
     }
-    elseif(isset($_GET['photo'])){
-        include_once 'photo.php';
-    }
-    elseif(isset($_GET['logout'])){
-        include_once 'logout.php';
-    }
-    elseif(isset($_GET['user'])){
-        include_once 'user.php';
-    }
-
     else {
-
-        header('HTTP/1.0 404 Not Found');
+        include_once "auth_protect.php";
+        if (isset($_GET['photo'])) {
+            include_once "photo.php";
+        }
+        else {
+            header('HTTP/1.0 404 Not Found');
+            exit;
+        }
     }
 }
 
 else {
-
     header('HTTP/1.0 404 Not Found');
 }
-
-
 exit;
 function api_response($array){
     header("Content-type: application/json; charset = utf-8");
