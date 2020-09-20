@@ -9,14 +9,12 @@ if ($users) {
     $is_token = false;
 
     foreach ($users as $user) {
-        //если токент гуд!
         if (md5($user['password']) == $token[1]) {
             $auth_user = $user;
             $is_token = true;
         }
     }
 
-    // если токен не валид то закрываем работу апи и ввыводим ошибку
     if (!$is_token) {
         $array = array('message' => 'You need authorization');
         header('HTTP/1.0 403 Forbidden');
