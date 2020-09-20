@@ -10,7 +10,6 @@ include_once 'database.php';
 $auth_user = null;
 try {
     $pdo = new PDO("mysql:host={$hostname};dbname={$database}", $username, $password);
-
 } catch (PDOException $e) {
     print "Error!: " . $e->getMessage();
     die();
