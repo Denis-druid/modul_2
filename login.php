@@ -14,7 +14,6 @@ if (isset($_POST['phone']) && isset($_POST['password'])) {
             if ($password == $user['password']) {
 
                 $token = md5($password);
-
                 $array = array('token' => $token);
                 api_response($array);
             }

@@ -19,3 +19,10 @@ $pdo -> exec("CREATE TABLE users (
                         PRIMARY KEY (id)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ");
+
+$pdo -> exec("CREATE TABLE photo(
+                        id BIGINT UNSIGNED NOT NULL AUTO_INREMENT COMMENT,
+                        name TEXT NOT NULL,                
+                        PRIMARY KEY (id)
+    ) ENGINE = InnoDB DEFAULT CHARSET=utf8;
+");
