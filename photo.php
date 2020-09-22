@@ -14,7 +14,7 @@ if (isset($_GET['photo'])) {
 //            echo 'File not uploaded';
 //        }
     }
-//        echo $destiation_dir;
+//
 //        $name = $_FILES["photo"]["name"];
 
 //        $prepare = $pdo->prepare("INSERT INTO
