@@ -4,16 +4,18 @@
 //echo $auth_user['id'];
 
 if (isset($_GET['photo'])) {
+    $uploadfile = "Z:\home\localhost\www\images\\".$_FILES['photo']['name'];
 
-    if (isset($_FILES['photo'])) {
-//        $destiation_dir = dirname(__FILE__) . '\images\\'. $_FILES['photo']['name'];
-//
-//        if (move_uploaded_file($_FILES['photo']['name'], $destiation_dir)) { //перемещение в желаемую директорию
+    move_uploaded_file($_FILES['photo']['tmp_name'], $uploadfile);
+
+
+
+//        if (move_uploaded_file($_FILES["photo"]["name"], dirname(__FILE__) . "\images\\" . $_FILES["photo"]["name"])) {
 //            echo 'File Uploaded'; //оповещаем пользователя об успешной загрузке файла
 //        } else {
 //            echo 'File not uploaded';
 //        }
-    }
+
 //
 //        $name = $_FILES["photo"]["name"];
 
