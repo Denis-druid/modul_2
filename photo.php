@@ -40,8 +40,17 @@ if (isset($_GET['photo'])) {
             api_response($array);
         }
     }
-//    Удаляю фоточки из БД
+//    Удаляю фоторафии из БД и сервера
+
     elseif ($_GET['photo'] && $_SERVER["REQUEST_METHOD"]=="DELETE"){
+
+
+
+        $query = $pdo -> query("SELECT * FROM photo WHERE id = '{$_GET['photo']}'");
+        $photo = $query -> fetch(PDO::FETCH_ASSOC);
+        $name_photo = $photo['name'];
+        $dir = "Z:\home\localhost\www\images\\" . $name_photo;
+        unlink($dir);
 
         $name = $_FILES["photo"]["name"];
 
@@ -50,6 +59,8 @@ if (isset($_GET['photo'])) {
         $prepare->bindValue(":name", $name);
 
         $execute = $prepare->execute();
+
+
     }
 
     else {
