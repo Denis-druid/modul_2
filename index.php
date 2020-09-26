@@ -28,6 +28,9 @@ if (isset($_GET['api'])) {
     elseif(isset($_GET['login'])){
         include_once 'login.php';
     }
+    elseif(isset($_GET['user'])){
+        include_once 'user.php';
+    }
     else {
         include_once "auth_protect.php";
         if (isset($_GET['photo'])) {

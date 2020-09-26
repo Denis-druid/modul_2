@@ -20,3 +20,4 @@
  RewriteRule ^api/logout$ /?api&logout [L]
  RewriteRule ^api/photo$ /?api&photo [L]
  RewriteRule ^api/photo/([0-9]{1,})$ /?api&photo=$1 [L]
+ RewriteRule ^api/user$ /?api&user [L]
