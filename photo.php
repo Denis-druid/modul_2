@@ -44,8 +44,6 @@ if (isset($_GET['photo'])) {
 
     elseif ($_GET['photo'] && $_SERVER["REQUEST_METHOD"]=="DELETE"){
 
-
-
         $query = $pdo -> query("SELECT * FROM photo WHERE id = '{$_GET['photo']}'");
         $photo = $query -> fetch(PDO::FETCH_ASSOC);
         $name_photo = $photo['name'];

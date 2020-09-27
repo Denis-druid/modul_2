@@ -1,10 +1,8 @@
 <?php
-//isset($_GET['first_name']);
-//$first_name = $_POST['first_name'];
-//echo json_encode($first_name);
-//&& $_SERVER["REQUEST_METHOD"]=="GET"
+//$search = $_POST['search'];
+//echo json_encode($search);
 
-if ($_SERVER["REQUEST_METHOD"]=="GET") { //Не совсем по заданию, но работает
+if ($_SERVER["REQUEST_METHOD"]=="POST") { //Не совсем по заданию, но работает
     $search = $_POST['search'];
     $id = null;
     $first_name = null;
@@ -17,18 +15,33 @@ if ($_SERVER["REQUEST_METHOD"]=="GET") { //Не совсем по заданию
                                     phone LIKE '$search%' ");
     $user = $query->fetch(PDO::FETCH_ASSOC);
 
-    $ar = array_chunk($user, 1);
+    if ($user !== false){
+        $ar = array_chunk($user, 1);
 
-    $id = $ar[0];
-    $first_name = $ar[1];
-    $surname = $ar[2];
-    $phone = $ar[3];
+        $id = $ar[0][0];
+        $first_name = $ar[1][0];
+        $surname = $ar[2][0];
+        $phone = $ar[3][0];
+//    $array = array(
+//        'id'=>$id,
+//        'first_name'=>$first_name,
+//        'surname'=>$surname,
+//        'phone'=>$phone
+//    );
 
-    $array = array(
-        'id'=>$id,
-        'first_name'=>$first_name,
-        'surname'=>$surname,
-        'phone'=>$phone
-    );
-    api_response($array);
-}
+        $info = array(
+            'id' => $id,
+            'first_name' => $first_name,
+            'surname' => $surname,
+            'phone' => $phone
+        );
+        $array = array(
+            'content' => $info
+        );
+        api_response($array);
+    }
+
+
+
+
+    }
