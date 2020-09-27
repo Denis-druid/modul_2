@@ -69,7 +69,7 @@ if (isset($_GET['photo'])) {
         api_response($array);
     }
 
-<>fj8ewhio
+
 }
 
 
