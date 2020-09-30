@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <div class="Auth">
+    <div id="reg" class="Auth">
         <div class="Auth__form">
             <div class="Form__item">
                 <div class="Form__item">
@@ -33,7 +33,7 @@
                 <div class="Item__label">
                     Пароль
                 </div>
-                <input class="Item__input">
+                <input class="Item__input" type="password">
             </div>
             </div>
             <div class="Form__item_margin-bottom-0">
@@ -43,32 +43,32 @@
             </div>
         </div>
         <div class="Auth__footer">
-            <a class="Footer__link">К входу</a>
+            <a id="link_log" class="Footer__link">К входу</a>
         </div>
     </div>
 
-    <div class="Auth">
+    <div id="login" class="Auth">
         <div class="Auth__form">
             <div class="Form__item">
                 <div class="Item__label">
                     Телефон
                 </div>
-                <input class="Item__input">
+                <input name="login_phone" class="Item__input" type="number" value="89999999999">
             </div>
             <div class="Form__item">
                 <div class="Item__label">
                     Пароль
                 </div>
-                <input class="Item__input">
+                <input name="login_password" class="Item__input" type="password" value="213">
             </div>
             <div class="Form__item_margin-bottom-0">
-                <div class="Item__button">
+                <div id="button_log" class="Item__button">
                     Вход
                 </div>
             </div>
         </div>
         <div class="Auth_footer">
-            <a class="Footer__link">Регистрация</a>
+            <a id="link_reg" class="Footer__link">Регистрация</a>
         </div>
     </div>
     <script type="application/javascript" src="app.js"></script>
