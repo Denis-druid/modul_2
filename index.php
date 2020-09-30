@@ -5,6 +5,7 @@ header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 header("Access-Control-Allow-Headers: Origin, Authorization, Content-Type, X-Requested-With, Accept");
 header("Access-Control-Allow-Credentials: false");
 header("Access-Control-Max-Age: -1");
+header('Content-Type: text/html; charset=utf-8');
 
 include_once 'database.php';
 $auth_user = null;
@@ -38,17 +39,21 @@ if (isset($_GET['api'])) {
         }
         else {
             header('HTTP/1.0 404 Not Found');
+
             exit;
         }
     }
 }
 
 else {
-    header('HTTP/1.0 404 Not Found');
+      header('Content-Type: text/html; charset=utf-8');
+      header('HTTP/1.0 200 OK');
+      include_once "./app.html";
+      exit;
 }
-exit;
+
 function api_response($array){
-    header("Content-type: application/json; charset = utf-8");
+    header("Content-Type: application/json; charset=utf-8");
     echo json_encode($array);
     exit;
 }
