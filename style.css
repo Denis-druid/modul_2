@@ -1,9 +1,11 @@
 body{
     text-align: center;
 }
-#login, #reg{
+#login, #reg, #page{
     display: none;
 }
+
+
 .Auth{
 
     display: inline-block;
