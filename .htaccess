@@ -21,3 +21,4 @@
  RewriteRule ^api/photo$ /?api&photo [L]
  RewriteRule ^api/photo/([0-9]{1,})$ /?api&photo=$1 [L]
  RewriteRule ^api/user$ /?api&user [L]
+ RewriteRule ^api/profile$ /?api&profile [L]

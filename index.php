@@ -33,10 +33,19 @@ if (isset($_GET['api'])) {
         include_once 'user.php';
     }
     else {
+
         include_once "auth_protect.php";
+
         if (isset($_GET['photo'])) {
+
             include_once "photo.php";
+
         }
+
+        else if (isset($_GET['profile'])){
+            include_once 'profile.php';
+        }
+
         else {
             header('HTTP/1.0 404 Not Found');
 
